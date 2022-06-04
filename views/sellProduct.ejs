@@ -1,0 +1,74 @@
+<%- include("sellerHeader") -%>
+
+<h1 class = "homeHeading">Your Products</h1>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Company</th>
+      <th scope="col">Price</th>
+      <th scope="col">Discount</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Size</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Color</th>
+      <th scope="col">Material</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <% for(var i=0;i<items.length;i++){ %>
+        <tr>
+          <th scope="row"><%=i%></th>
+          <td><%= items[i].item_name %></td>
+          <td><%= items[i].company_name %></td>
+          <td><%= items[i].price %></td>
+          <td><%= items[i].discount %></td>
+          <td><%= items[i].stock_quantity %></td>
+          <td><%= items[i].size %></td>
+          <td><%= items[i].weight %></td>
+          <td><%= items[i].color %></td>
+          <td><%= items[i].material %></td>
+          <td>
+              <form action="/deleteItem" method="post">
+                <button class = "btn btn-outline-danger btn-block" type="submit" name="id" value="<%= items[i].item_id%>">Delete</button>
+              </form>
+          </td>
+
+        </tr>
+      <% } %>
+  </tbody>
+</table><br><br>
+
+
+<section id="form">
+    <div class="container">
+        <form class="form" action="/sellProduct" method="post">
+
+            <label for="item_name">Item Name:</label><br>
+            <input type="text" id="item_name" name="item_name"><br>
+            <label for="company_name">Company Name:</label><br>
+            <input type="text" id="company_name" name="company_name"><br>
+            <label for="price">Price:</label><br>
+            <input type="text" id="price" name="price"><br>
+            <label for="discount">Discount (optional):</label><br>
+            <input type="text" id="discount" name="discount"><br>
+            <label for="stock_quantity">Quantity:</label><br>
+            <input type="text" id="stock_quantity" name="stock_quantity"><br>
+            <label for="size">Size:</label><br>
+            <input type="text" id="size" name="size"><br>
+            <label for="weight">Weight:</label><br>
+            <input type="text" id="weight" name="weight" ><br>
+            <label for="color">Color:</label><br>
+            <input type="text" id="color" name="color"><br>
+            <label for="material">Material:</label><br>
+            <input type="text" id="material" name="material"><br>
+
+            <button name="add" placeholder="Add"class="btn btn-warning btn-lg ">Add Product</button>
+
+        </form>
+    </div>
+</section>

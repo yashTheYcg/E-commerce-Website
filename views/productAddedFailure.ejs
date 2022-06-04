@@ -1,0 +1,36 @@
+<%- include("sellerHeader") -%>
+
+<div class="alert alert-danger" role="alert">
+  Failure, Product has already exist !
+</div>
+
+<h1><strong>Here you can add the Product</strong></h1>
+
+<section id="form">
+    <div class="container">
+        <form class="form" action="/sellProduct" method="post">
+
+            <label for="item_name">Item Name:</label><br>
+            <input type="text" id="item_name" name="item_name"><br>
+            <label for="company_name">Company Name:</label><br>
+            <input type="text" id="company_name" name="company_name"><br>
+            <label for="price">Price:</label><br>
+            <input type="text" id="price" name="price"><br>
+            <label for="discount">Discount (optional):</label><br>
+            <input type="text" id="discount" name="discount"><br>
+            <label for="stock_quantity">Quantity:</label><br>
+            <input type="text" id="stock_quantity" name="stock_quantity"><br>
+            <label for="size">Size:</label><br>
+            <input type="text" id="size" name="size"><br>
+            <label for="weight">Weight:</label><br>
+            <input type="text" id="weight" name="weight" ><br>
+            <label for="color">Color:</label><br>
+            <input type="text" id="color" name="color"><br>
+            <label for="material">Material:</label><br>
+            <input type="text" id="material" name="material"><br>
+
+            <input type="submit" name="add" placeholder="Add"class="btn btn-outline-danger">
+
+        </form>
+    </div>
+</section>

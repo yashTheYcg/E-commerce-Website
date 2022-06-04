@@ -1,0 +1,65 @@
+<% if(person === "customer"){ %>
+  <%- include('header0'); -%>
+<% } else { %>
+  <%- include('sellerHeader'); -%>
+<% } %>
+
+
+
+<div class="container">
+  <div class="text-center">
+      <i class="fa fa-search-plus pull-left icon"></i>
+      <h2 class="checkout">Your Order has been placed</h2>
+  </div>
+  <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Item Name</strong></td>
+                                    <td class="text-center"><strong>Item Price</strong></td>
+                                    <td class="text-center"><strong>Item Quantity</strong></td>
+                                    <td class="text-right"><strong>Total</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%=item[0].item_name %></td>
+                                    <td class="text-center"> Rs. <%=item[0].price %></td>
+                                    <td class="text-center"> <%=quantity%> </td>
+                                    <td class="text-right"> Rs. <%=totalprice%></td>
+                                </tr>
+                                <tr>
+                                    <td class="highrow"></td>
+                                    <td class="highrow"></td>
+                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    <td class="highrow text-right">Rs. <%=totalprice%> </td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Shipping</strong></td>
+                                    <td class="emptyrow text-right">Rs. 150</td>
+                                </tr>
+                                <%let total = totalprice + 150%>
+                                <tr>
+                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Total</strong></td>
+                                    <td class="emptyrow text-right">Rs. <%=total%> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

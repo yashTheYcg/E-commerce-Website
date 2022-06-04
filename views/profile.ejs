@@ -1,0 +1,88 @@
+<% if(person === "customer"){ %>
+  <%- include('header0'); -%>
+<% } else { %>
+  <%- include('sellerHeader'); -%>
+<% } %>
+
+<!-- <img  src="./images/demo profile photo.png" class="rounded" alt="image not found"> -->
+
+
+
+
+    <section style="background-color: #eee; padding-top: 20px;">
+          <div class="row" style="padding-left: 20px;">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img src="./images/demo profile photo.png" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3"><%= info[0].first_name %></h5>
+                  <p class="text-muted mb-1"><%= person %> </p>
+                  <div class="d-flex justify-content-center mb-2" style="margin-top: 10px;">
+                    <a href="/login" class="btn btn-danger">log-out</a>
+                    <form action="/profile" method="post">
+                    <%  if(person === "seller"){ %>
+                      <button class = "btn btn-outline-secondary " type="submit" name="id" value="<%= info[0].seller_id%>">Delete</button>
+                    <%  } else { %>
+                      <button class = "btn btn-outline-secondary " type="submit" name="id" value="<%= info[0].customer_id%>">Delete</button>
+                    <%  } %>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8" style="padding-top: 50px; padding-right: 40px;">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Full Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%= info[0].first_name + " " + info[0].last_name %></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%= info[0].email %></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Mobile</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%= info[0].phone_number %></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Address</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%= info[0].street_number + "," +info[0].street_name + "," + info[0].city +","+ info[0].state %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+<%- include('footer'); -%>

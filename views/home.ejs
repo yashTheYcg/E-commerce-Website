@@ -1,0 +1,49 @@
+<% if(person === "customer"){ %>
+  <%- include('header0'); -%>
+<% } else { %>
+  <%- include('sellerHeader'); -%>
+<% } %>
+
+<h1 class="homeHeading">All Products</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Company</th>
+      <th scope="col">Price</th>
+      <th scope="col">Discount</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Size</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Color</th>
+      <th scope="col">Material</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <% for(var i=0;i<item.length;i++){ %>
+        <tr>
+          <th scope="row"><%=i%></th>
+          <td><%= item[i].item_name %></td>
+          <td><%= item[i].company_name %></td>
+          <td><%= item[i].price %></td>
+          <td><%= item[i].discount %></td>
+          <td><%= item[i].stock_quantity %></td>
+          <td><%= item[i].size %></td>
+          <td><%= item[i].weight %></td>
+          <td><%= item[i].color %></td>
+          <td><%= item[i].material %></td>
+          <td>
+            <% if(person === "customer"){ %>
+              <form action="/home" method="post">
+                <button class = "btn btn-outline-warning btn-block" type="submit" name="id" value="<%= item[i].item_id%>">Buy</button>
+              </form>
+            <% } %>
+          </td>
+
+        </tr>
+      <% } %>
+  </tbody>
+</table>
